@@ -1,0 +1,15 @@
+{
+  "name": "renovate-config",
+  "version": "0.0.0-development",
+  "description": "Personal opinionated Renovate config preset",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/henrist/renovate-config.git"
+  },
+  "author": "Henrik Steen",
+  "license": "MIT",
+  "devDependencies": {
+    "ajv-cli": "5.0.0",
+    "ajv-formats": "2.1.1"
+  }
+}

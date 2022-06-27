@@ -1,0 +1,95 @@
+{
+  "extends": ["config:base"],
+  "lockFileMaintenance": {
+    "enabled": true,
+    "schedule": ["before 6am on monday"]
+  },
+  "major": {
+    "automerge": false
+  },
+  "packageRules": [
+    {
+      "packageNames": [
+        "boto3",
+        "aws-sdk"
+      ],
+      "packagePatterns": [
+        "^com\\.amazonaws:java-sdk-",
+        "^software\\.amazon\\.awssdk:"
+      ],
+      "extends": ["schedule:monthly"]
+    },
+    {
+      "packagePatterns": [
+        "^org\\.jetbrains\\.kotlinx:kotlinx-serialization-"
+      ],
+      "groupName": "kotlinx-serialization packages"
+    },
+    {
+      "packagePatterns": [
+        "^software\\.amazon\\.awssdk:"
+      ],
+      "groupName": "aws-sdk-java-v2 monorepo"
+    },
+    {
+      "packagePatterns": [
+        "^org\\.junit\\.jupiter:",
+        "^org\\.junit\\.platform:",
+        "^org\\.junit\\.vintage:"
+      ],
+      "groupName": "junit5 packages"
+    },
+    {
+      "packagePatterns": ["^org\\.http4k:http4k-"],
+      "groupName": "http4k monorepo"
+    },
+    {
+      "packagePatterns": ["^org\\.jdbi:jdbi3-"],
+      "groupName": "jdbi3 packages"
+    },
+    {
+      "packagePatterns": ["^org\\.spekframework\\.spek2:"],
+      "groupName": "spek2 packages"
+    },
+    {
+      "packagePatterns": [
+        "^com\\.slack\\.api:"
+      ],
+      "groupName": "slack api packages"
+    },
+    {
+      "packagePatterns": [
+        "^org\\.jetbrains\\.kotlin:",
+        "^org\\.jetbrains\\.kotlin\\.\\w+:",
+        "^org\\.jetbrains\\.kotlin\\.plugin\\.\\w+:"
+      ],
+      "groupName": "kotlin packages"
+    },
+    {
+      "description": "Prevent inheriting any auto-merge of Kotlin minor versions to minimize compatibiliity issues",
+      "packagePatterns": [
+        "^org\\.jetbrains\\.kotlin:",
+        "^org\\.jetbrains\\.kotlin\\.\\w+:",
+        "^org\\.jetbrains\\.kotlin\\.plugin\\.\\w+:",
+        "^org\\.jetbrains\\.kotlinx:"
+      ],
+      "matchUpdateTypes": ["minor"],
+      "automerge": false
+    },
+    {
+      "description": "Avoid updates such as from 0.20.0 to 0.20.0-1.3.70-eap-274-2",
+      "packagePatterns": [
+        "^org\\.jetbrains\\.kotlinx:"
+      ],
+      "versioning": "semver"
+    }
+  ],
+  "pin": {
+    "automerge": true
+  },
+  "prCreation": "not-pending",
+  "semanticCommits": "enabled",
+  "stabilityDays": 3,
+  "prNotPendingHours": 74,
+  "timezone": "Europe/Oslo"
+}

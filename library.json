@@ -1,0 +1,10 @@
+{
+  "extends": [
+    "github>henrist/renovate-config:default",
+    ":pinOnlyDevDependencies"
+  ],
+  "lockFileMaintenance": {
+    "automerge": true,
+    "automergeType": "branch"
+  }
+}
