@@ -90,7 +90,8 @@
   },
   "prCreation": "not-pending",
   "semanticCommits": "enabled",
-  "stabilityDays": 3,
+  "minimumReleaseAge": "3 days",
+  "minimumReleaseAgeBehaviour": "timestamp-optional",
   "prNotPendingHours": 74,
   "timezone": "Europe/Oslo"
 }
