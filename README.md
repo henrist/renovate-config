@@ -22,25 +22,36 @@ For libraries - using [`library.json`](./library.json):
 }
 ```
 
+Opt-in automerge of a curated low-risk set - using [`automated.json`](./automated.json):
+
+```json
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "github>henrist/renovate-config:default",
+    "github>henrist/renovate-config:automated"
+  ]
+}
+```
+
+Aggressive automerge of all non-major - using [`automated-aggressive.json`](./automated-aggressive.json):
+
+```json
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "github>henrist/renovate-config:default",
+    "github>henrist/renovate-config:automated-aggressive"
+  ]
+}
+```
+
+`:automated` and `:automated-aggressive` are designed to layer on top of `:default`. Used standalone they lose `minimumReleaseAge` and other safety rails.
+
 ## Recipes
 
 This is a collection of Renovate configs I typically use
 in various projects.
-
-### Automerge dev deps
-
-```json
-{
-  "packageRules": [
-    {
-      "matchDepTypes": ["devDependencies"],
-      "matchUpdateTypes": ["minor", "patch"],
-      "automerge": true,
-      "automergeType": "branch"
-    }
-  ]
-}
-```
 
 ### Regex matcher
 

@@ -91,6 +91,9 @@
   "pin": {
     "automerge": true
   },
+  "pinDigest": {
+    "automerge": true
+  },
   "prCreation": "not-pending",
   "semanticCommits": "enabled",
   "minimumReleaseAge": "3 days",
